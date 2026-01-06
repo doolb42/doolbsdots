@@ -1,0 +1,55 @@
+/* --- EVERFOREST WAYBAR THEME (Dark Hard) --- */
+
+@define-color bg      #2b3339;
+@define-color bg2     #374247;
+@define-color fg      #d3c6aa;
+@define-color accent  #a7c080;
+@define-color red     #e67e80;
+@define-color blue    #7fbbb3;
+
+/* Bar background */
+#waybar {
+    background: @bg;
+    color: @fg;
+    border-bottom: 2px solid @accent;
+    font-family: JetBrainsMono Nerd Font, monospace;
+    font-size: 12pt;
+}
+
+/* Modules */
+#workspaces button {
+    color: @fg;
+    background: @bg2;
+    border-radius: 6px;
+    padding: 0 6px;
+    margin: 2px;
+}
+
+#workspaces button.active {
+    background: @accent;
+    color: @bg;
+    font-weight: bold;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#tray {
+    padding: 0 10px;
+    background: @bg2;
+    border-radius: 6px;
+    margin: 2px 4px;
+}
+
+/* Hover */
+#workspaces button:hover,
+#clock:hover,
+#battery:hover,
+#pulseaudio:hover {
+    background: @blue;
+    color: @bg;
+}
+

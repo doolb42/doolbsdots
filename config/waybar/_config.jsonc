@@ -1,0 +1,76 @@
+{
+  "layer": "top",
+  "position": "top",
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/apps"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "wireplumber",
+    "network",
+    "custom/calendar",
+    "tray"
+  ],
+
+  //
+  // CLOCK — click to open calendar popup
+  //
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip": false,
+    "on-click": "gsimplecal"
+  },
+ 
+//
+// // Apps button
+//
+
+"custom/apps": {
+  "format": "",
+  "tooltip": false,
+  "on-click": "wofi --show drun",
+  "on-click-middle": "wofi --show run",
+  "on-click-right": "pkill wofi"
+},
+
+
+
+
+
+
+ //
+  // AUDIO
+  //
+  "wireplumber": {
+    "format": "{volume}% ",
+    "format-muted": " muted",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+
+  //
+  // NETWORK
+  //
+  "network": {
+    "format-wifi": " {essid} {signalStrength}%",
+    "format-ethernet": "󰈁 {ipaddr}",
+    "on-click": "nm-connection-editor"
+  },
+
+  //
+  // SYS TRAY
+  //
+"tray": {
+  "spacing": 8,
+  "icon-size": 22,
+  "icon-theme": "hicolor"
+}
+
+}
