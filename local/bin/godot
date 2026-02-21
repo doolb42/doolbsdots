@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Godot version chooser for your Arch setup
+
+# Directory where your binaries actually live
+GODOT_DIR="/mnt/nautilus/Godot"
+
+# Find all executable Godot binaries in that folder
+mapfile -t binaries < <(find "$GODOT_DIR" -maxdepth 2 -type f -executable -name 'Godot*' | sort)
+
+# Exit if none found
+if [ ${#binaries[@]} -eq 0 ]; then
+    echo "No Godot binaries found in $GODOT_DIR"
+    exit 1
+fi
+
+# Print menu
+echo "Available Godot versions:"
+for i in "${!binaries[@]}"; do
+    echo "$((i+1))) $(basename "${binaries[$i]}")"
+done
+
+# Prompt user
+read -rp "Select a version: " choice
+
+# Validate input and launch
+if [[ "$choice" =~ ^[0-9]+$ ]] && [ "$choice" -ge 1 ] && [ "$choice" -le "${#binaries[@]}" ]; then
+    echo "Launching ${binaries[$((choice-1))]}"
+    "${binaries[$((choice-1))]}"
+else
+    echo "Invalid selection"
+    exit 1
+fi
