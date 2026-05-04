@@ -32,8 +32,8 @@ if [ "$TOTAL" -gt 0 ]; then
     fi
     
     # Формируем JSON для waybar
-    echo "{\"text\": \"$OUTPUT\", \"tooltip\": \"Official: $OFFICIAL\\nAUR: $AUR\"}"
+    echo "{\"text\": \"󰏗 $OFFICIAL | 󰚰 $AUR\", \"tooltip\": \"Official: $OFFICIAL\nAUR: $AUR\"}"
 else
     # Пустой вывод для waybar
-    echo "{\"text\": \"\"}"
+    echo "{\"text\": \"\", \"tooltip\": \"System up to date\"}"
 fi

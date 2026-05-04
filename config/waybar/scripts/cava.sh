@@ -1,6 +1,17 @@
 #!/bin/bash
 
-# Not my own work. Credit to original author
+
+PRIMARY_MONITOR="DP-2"
+
+CURRENT_MONITOR=$(hyprctl monitors -j | jq -r '.[] | select(.focused==true) | .name')
+
+if [ "$CURRENT_MONITOR" != "$PRIMARY_MONITOR" ]; then
+    # output nothing on secondary monitor
+    while true; do
+        sleep 1000
+    done
+fi
+
 
 #----- Optimized bars animation without much CPU usage increase --------
 bar="▁▂▃▄▅▆▇█"
@@ -15,7 +26,7 @@ for ((i = 0; i < bar_length; i++)); do
 done
 
 # Create cava config
-config_file="/tmp/bar_cava_config"
+config_file="/tmp/bar_cava_${WAYBAR_BAR_ID:-$$}.config"
 cat >"$config_file" <<EOF
 [general]
 # Older systems show significant CPU use with default framerate

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-API_KEY="ed9e1f66545f2f25d7bb0655c4116045"
-CITY_ID="468902"
+API_KEY="fedc5ef55052bc73b6eba28b0ba13b7c"
+CITY_ID="2172677"
 UNITS="metric"
 LANG="en"
 
